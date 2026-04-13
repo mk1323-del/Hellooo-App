@@ -1,26 +1,23 @@
-public class HelloApp {
+public class UC6Hello {
     public static void main(String[] args) {
 
-        String result;
-
+        // Default case
         if (args.length == 0) {
-            result = "World";
-        } else {
-            StringBuilder sb = new StringBuilder();
-
-            boolean first = true;
-
-            for (String name : args) {
-                if (!first) {
-                    sb.append(", ");
-                }
-                sb.append(name);
-                first = false;
-            }
-
-            result = sb.toString();
+            System.out.println("Hello, World!");
+            return;
         }
 
+        StringBuilder result = new StringBuilder();
+
+        // Append names with delimiter
+        for (String name : args) {
+            result.append(name).append(", ");
+        }
+
+        // Remove trailing ", "
+        result.setLength(result.length() - 2);
+
+        // Print final output
         System.out.println("Hello, " + result + "!");
     }
 }
